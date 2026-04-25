@@ -1,17 +1,48 @@
-# Quartz v4
+# Personal Blog
 
-> “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
+基于 Quartz 4 的个人博客，用来发布我在 Obsidian 里写的 AI 工作流笔记。
 
-Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.
+## 当前内容
 
-🔗 Read the documentation and get started: https://quartz.jzhao.xyz/
+- 首页
+- About
+- `我的AI工作流` 专题页
+- 2 篇已发布文章
+- GitHub Pages 自动部署工作流
 
-[Join the Discord Community](https://discord.gg/cRFFHYye7t)
+## 本地使用
 
-## Sponsors
+安装依赖：
 
-<p align="center">
-  <a href="https://github.com/sponsors/jackyzha0">
-    <img src="https://cdn.jsdelivr.net/gh/jackyzha0/jackyzha0/sponsorkit/sponsors.svg" />
-  </a>
-</p>
+```bash
+npm ci
+```
+
+同步 Obsidian 里的 AI 工作流笔记：
+
+```bash
+./scripts/sync-ai-workflow.sh
+```
+
+本地预览：
+
+```bash
+npx quartz build --serve
+```
+
+默认会从这个目录同步内容：
+
+`~/Documents/Obsidian Vault/我的AI工作流`
+
+## 部署到 GitHub Pages
+
+1. 在 GitHub 创建一个新的公开仓库：`personal-blog`
+2. 把当前目录作为仓库推上去
+3. 在仓库 `Settings -> Pages` 里把 `Source` 设为 `GitHub Actions`
+4. 推送到 `v4` 分支后，工作流会自动部署
+
+站点地址会是：
+
+`https://xunjin58.github.io/personal-blog/`
+
+如果你的 GitHub 用户名变化了，记得同步修改 `quartz.config.ts` 里的 `baseUrl`。
